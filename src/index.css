@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS Variables for Black & White Theme */
+:root {
+  --primary-black: #000000;
+  --secondary-black: #1a1a1a;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --accent-white: #ffffff;
+  --accent-gray: #808080;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--primary-black);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-gray);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-primary);
+}
+
+/* Selection Styles */
+::selection {
+  background: var(--text-primary);
+  color: var(--primary-black);
+}
+
+::-moz-selection {
+  background: var(--text-primary);
+  color: var(--primary-black);
+}
+
+/* Custom Cursor */
+.cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, var(--text-primary) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: transform 0.1s ease;
+}
+
+.cursor.hover {
+  transform: scale(1.5);
+  background: radial-gradient(circle, var(--text-primary) 0%, transparent 70%);
+}
+
+/* Utility Classes */
+.text-gradient {
+  color: var(--text-primary);
+}
+
+.simple-border {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.white-border {
+  border: 1px solid var(--text-primary);
+}
+
+/* Glass Effect */
+.glass {
+  background: rgba(26, 26, 26, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Simple Button */
+.luxury-button {
+  background: var(--text-primary);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  color: var(--primary-black);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.luxury-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.luxury-button:hover::before {
+  left: 100%;
+}
+
+.luxury-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+  background: var(--accent-gray);
+}
+
+/* Section Spacing */
+.section-padding {
+  padding: 100px 0;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hide loading screen after app loads */
+.loading-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Simple Text Effects */
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.border-glow {
+  border: 2px solid var(--text-primary);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Simple Animations */
+.float-slow {
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-fast {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Simple Pulse Effect */
+.pulse-simple {
+  animation: pulse-simple 2s ease-in-out infinite;
+}
+
+@keyframes pulse-simple {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Simple Background */
+.simple-bg {
+  background: transparent;
+}
+
+/* Simple Glass Effect */
+.glass-simple {
+  background: rgba(26, 26, 26, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Simple Hover Effect */
+.hover-lift {
+  transition: transform 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
